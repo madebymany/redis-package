@@ -1,0 +1,21 @@
+packages:
+  branch_codenames:
+    master: unstable
+    production: stable
+
+github_base_url: "https://github.com/madebymany/redis-package"
+slack_notify_url: "https://hooks.slack.com/services/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"
+
+jobs:
+  redis:
+    builder: "make"
+    base: "quay.io/madebymany/build-bases:trusty"
+    promote_through:
+      - unstable
+      - stable
+    packages:
+      - type: debian
+        name: redis
+        version: 2.8.3
+        repos:
+          - mxm-public
