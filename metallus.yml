@@ -19,7 +19,6 @@ jobs:
         repos:
           - mxm-public
         target: install
-    packages:
       - type: debian
         name: redis-runit
         depends:
