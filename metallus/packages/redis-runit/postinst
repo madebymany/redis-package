@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+SERVICE="redis"
+
+restart_service() {
+  sv restart "${SERVICE}"
+}
+
+if [ ! -d /etc/service/$SERVICE ] ; then
+  ln -s /etc/sv/$SERVICE /etc/service
+fi
+
+case "$1" in
+  configure)
+    if [ -n "$2" ] ; then
+      # This is an upgrade
+      restart_service
+    fi
+    ;;
+
+  triggered)
+    restart_service
+    ;;
+esac
