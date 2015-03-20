@@ -3,7 +3,7 @@ REDIS_SOURCE_DIR=redis-$(REDIS_VERSION)
 REDIS_CONFIG=/etc/redis/redis.conf
 REDIS_SRC_CONFIG=$(REDIS_SOURCE_DIR)/redis.conf
 
-BATS_BASE_DIR=/usr/libexec/
+BATS_BASE_DIR=/usr/libexec
 
 all: build
 
