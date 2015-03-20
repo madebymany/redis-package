@@ -5,7 +5,7 @@ REDIS_SRC_CONFIG=$(REDIS_SOURCE_DIR)/redis.conf
 
 BATS_BASE_DIR=/usr/libexec/
 
-all: build test-bats
+all: build
 
 build: $(REDIS_SOURCE_DIR) $(redis.conf)
 	cd $(REDIS_SOURCE_DIR) && make
