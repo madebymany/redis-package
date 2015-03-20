@@ -4,7 +4,6 @@ packages:
     production: stable
 
 github_base_url: "https://github.com/madebymany/redis-package"
-slack_notify_url: "https://hooks.slack.com/services/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"
 
 jobs:
   redis:
@@ -20,3 +19,14 @@ jobs:
         repos:
           - mxm-public
         target: install
+    packages:
+      - type: debian
+        name: redis-runit
+        depends:
+          - "runit-common"
+          - "slackcat"
+          - "redis"
+        version: 0.0.1
+        repos:
+          - mxm-public
+        target: install-runit

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+SERVICE_NAME="redis"
+
+if [ "$1" == "1" ]; then
+  if [ -n "$(which slackcat)" ]; then
+    slackcat "@channel ${SERVICE_NAME} failed to run"
+  fi
+fi
+
+echo "stopping ${SERVICE_NAME}" | logger -t "${SERVICE_NAME}"

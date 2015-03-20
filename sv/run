@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. "$(which global-env)"
+
+SERVICE_NAME="redis"
+
+exec 2>&1
+echo "starting $SERVICE_NAME" | logger -t "$SERVICE_NAME"
+
+exec redis-server /etc/redis/redis.conf

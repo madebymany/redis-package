@@ -1,0 +1,10 @@
+#!/bin/sh
+
+TEST="test"
+val=$(redis-cli ECHO $TEST)
+if [ "$val" = "$TEST" ];
+then
+  exit 0
+else
+  exit 1
+fi
